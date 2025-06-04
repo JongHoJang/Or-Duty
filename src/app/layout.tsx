@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'OR_DUTY',
+  title: 'DUTY-Free',
   description: '수술실 듀티표 자동 생성 프로그램입니다.',
 }
 

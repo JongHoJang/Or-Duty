@@ -149,19 +149,32 @@ export default function UploadPage() {
   return (
     <div className="p-6 max-w-6xl mx-auto">
       {!uploaded && (
-        <>
-          <h1 className="text-2xl font-bold mb-4">듀티표를 업로드 해주세요.</h1>
-
-          <label className="inline-block px-4 py-2 bg-blue-500 text-white rounded cursor-pointer hover:bg-blue-600">
-            파일 선택
-            <input
-              type="file"
-              accept=".xlsx,.xls"
-              onChange={handleFileUpload}
-              className="hidden"
-            />
-          </label>
-        </>
+        <div className="min-h-screen flex flex-col items-center justify-center text-center pb-40">
+          <div className="bg-gray-100 p-10 rounded-xl shadow-xl">
+            <div className="flex flex-row items-end mb-4">
+              <h1 className="text-2xl font-bold mb-4">
+                듀티표를 업로드 해주세요.
+              </h1>
+            </div>
+            <label className="inline-block px-4 py-2 bg-blue-500 text-white rounded cursor-pointer hover:bg-blue-600">
+              파일 선택
+              <input
+                type="file"
+                accept=".xlsx,.xls"
+                onChange={handleFileUpload}
+                className="hidden"
+              />
+            </label>
+          </div>
+          <a
+            href="https://walnut-hose-a93.notion.site/208ebd82d491809d921fe226f3a6ddba?source=copy_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-700 underline cursor-pointer mt-4"
+          >
+            <span>이용 가이드 보러가기 &gt;</span>
+          </a>
+        </div>
       )}
 
       <div className="grid grid-cols-5 gap-4">
