@@ -113,6 +113,15 @@ export default function UploadPage() {
             const fgRgb = cell?.s?.fgColor?.rgb?.toUpperCase()
             const isOrange = fgRgb === 'FFC000'
 
+            if (isOrange) {
+              console.log('🎨 ORANGE FOUND:', {
+                name,
+                duty,
+                cellAddress,
+                fgRgb,
+              })
+            }
+
             if (duty) {
               const normalized = normalizeDutyKey(duty)
               if (!dutyMap[normalized]) {
@@ -147,7 +156,7 @@ export default function UploadPage() {
   }
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="py-6 max-w-6xl mx-auto">
       {!uploaded && (
         <div className="min-h-screen flex flex-col items-center justify-center text-center pb-40">
           <div className="bg-gray-100 p-10 rounded-xl shadow-xl">
@@ -177,7 +186,7 @@ export default function UploadPage() {
         </div>
       )}
 
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-5 gap-2">
         {Object.entries(resultByDay).map(([day, duties]) => {
           const sortedDutyEntries = Object.entries(duties).sort((a, b) => {
             const [aPriority, aSub] = getDutyPriority(a[0])
@@ -208,11 +217,11 @@ export default function UploadPage() {
                     const isLastNumeric = index === numericCount - 1
                     return (
                       <div key={normKey}>
-                        <div className="flex flex-row items-start">
+                        <div className="flex flex-row gap-1">
                           <h3 className="font-semibold text-xs w-[40px]">
                             {getDisplayLabel(normKey)}
                           </h3>
-                          <ul className="list-none text-xs grid-cols-3 grid ml-1">
+                          <ul className="list-none text-xs grid-cols-3 grid">
                             {entries.map((entry, idx) => (
                               <li
                                 key={idx}
